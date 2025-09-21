@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin:0;
+            background-image: url("https://c4.wallpaperflare.com/wallpaper/831/447/686/bmw-desert-sport-car-landscape-wallpaper-preview.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size:cover ;
+            
+        }
+        #clock-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+            
+        }
+        #clock{
+            font-family: sans-serif;
+            font-size: 4.5rem;
+            font-weight: bold;
+            text-align: center;
+            color:black;
+            backdrop-filter: blur(2px);
+            background-color: whitesmoke;
+            border-radius: 10px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="clock-container">
+        <div id="clock">00:00:00</div>
+    </div>
+    <script>
+
+
+        function update(){
+            const now =new Date();
+            const hours=now.getHours().toString().padStart(2,0);
+            const meridian=hours>12?"PM":"AM";
+            const minutes=now.getMinutes().toString().padStart(2,0);
+            const seconds=now.getSeconds().toString().padStart(2,0);
+            const timeString=document.getElementById('clock');
+            timeString.textContent=`${hours}:${minutes}:${seconds} ${meridian}`;
+        }
+        setInterval(update,1000);
+    </script>
+</body>
+</html>
